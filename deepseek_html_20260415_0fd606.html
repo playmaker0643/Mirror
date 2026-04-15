@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blossom of Iman · For Her</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400;500&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fce9f1;  /* soft blush pink */
+            background-image: radial-gradient(circle at 20% 30%, rgba(255, 240, 245, 0.7) 0%, #fadadd 90%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Raleway', sans-serif;
+            padding: 1.8rem;
+            color: #4a3341;
+            position: relative;
+        }
+
+        /* feminine floral overlay pattern */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><path d="M40 8 Q44 2 48 8 Q54 10 52 16 Q56 22 50 24 Q48 30 40 28 Q32 30 30 24 Q24 22 28 16 Q26 10 32 8 Q36 2 40 8" fill="%23d9a7b2" opacity="0.08"/><circle cx="40" cy="52" r="6" fill="%23d9a7b2" opacity="0.06"/><path d="M18 42 Q20 38 24 40 Q28 36 28 42 Q32 46 28 48 Q28 54 24 52 Q20 56 18 50 Q14 48 18 42" fill="%23c48b9a" opacity="0.05"/><path d="M60 18 Q64 14 68 20 Q72 22 68 28 Q72 34 66 36 Q62 42 58 36 Q52 34 56 28 Q50 22 56 18 Q54 12 60 18" fill="%23e4b5c2" opacity="0.06"/></svg>');
+            background-repeat: repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .lady-card {
+            max-width: 820px;
+            width: 100%;
+            background: rgba(255, 248, 250, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 60px 60px 60px 20px;
+            padding: 2.8rem 2.4rem;
+            box-shadow: 0 30px 45px -15px rgba(160, 80, 100, 0.25),
+                        0 8px 18px rgba(190, 120, 140, 0.15),
+                        inset 0 0 0 1.5px rgba(255, 255, 255, 0.9),
+                        inset 0 0 20px rgba(255, 215, 225, 0.4);
+            border: 1px solid rgba(230, 170, 185, 0.5);
+            transition: all 0.25s ease;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* tiny decorative pearls effect */
+        .lady-card::after {
+            content: "✿ ✿ ✿";
+            position: absolute;
+            bottom: 18px;
+            right: 32px;
+            font-size: 1.2rem;
+            color: #d99fb0;
+            opacity: 0.5;
+            letter-spacing: 8px;
+        }
+
+        .card-inner {
+            position: relative;
+            z-index: 3;
+        }
+
+        /* elegant bismillah */
+        .bismillah-feminine {
+            text-align: center;
+            margin-bottom: 2.2rem;
+        }
+
+        .arabic-bism {
+            font-family: 'Amiri', 'Times New Roman', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: #884e62;
+            letter-spacing: 3px;
+            line-height: 1.5;
+            text-shadow: 2px 3px 10px rgba(220, 150, 160, 0.2);
+            background: linear-gradient(135deg, #a45e70 0%, #7f4454 90%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 6px;
+        }
+
+        .trans-soft {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #b37b8a;
+            font-weight: 300;
+            word-spacing: 4px;
+        }
+
+        /* dedication — personal & sweet */
+        .dedication-lady {
+            text-align: center;
+            margin: 0.8rem 0 2rem;
+        }
+
+        .dedication-lady h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            font-size: 2.4rem;
+            color: #6b3f51;
+            display: inline-block;
+            padding: 0 25px 12px;
+            border-bottom: 2px dotted #e2b6c3;
+            letter-spacing: 1.5px;
+        }
+
+        .dedication-lady i {
+            color: #c77d91;
+            font-size: 1.4rem;
+            margin: 0 8px;
+        }
+
+        .petal-message {
+            margin-top: 8px;
+            font-size: 1rem;
+            color: #8b6b76;
+            font-style: italic;
+        }
+
+        /* quote display — soft, rose area */
+        .quote-rose {
+            background: rgba(255, 240, 245, 0.6);
+            border-radius: 50px 20px 50px 20px;
+            padding: 2.2rem 2rem 1.8rem;
+            margin: 1.8rem 0 2rem;
+            box-shadow: inset 0 2px 15px rgba(235, 180, 190, 0.15), 0 10px 20px -5px rgba(170, 110, 120, 0.1);
+            border-left: 6px solid #e6aebb;
+            border-right: 3px solid #f1ced9;
+            transition: opacity 0.2s;
+        }
+
+        .quote-arabic-lady {
+            font-family: 'Amiri', serif;
+            font-size: 2.4rem;
+            line-height: 1.7;
+            text-align: center;
+            color: #5d2e41;
+            margin-bottom: 18px;
+            font-weight: 400;
+            direction: rtl;
+            text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
+        }
+
+        .quote-meaning-lady {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            text-align: center;
+            color: #7a5162;
+            margin-bottom: 12px;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .quote-source-lady {
+            text-align: center;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            color: #b18494;
+            text-transform: uppercase;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .quote-source-lady i {
+            color: #c27a8c;
+            margin: 0 5px;
+        }
+
+        /* button — ladylike charm */
+        .blossom-btn-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0 15px;
+        }
+
+        .blossom-btn {
+            background: #f4d7e0;
+            border: none;
+            padding: 15px 38px;
+            border-radius: 60px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 400;
+            font-size: 1.25rem;
+            color: #673f4f;
+            box-shadow: 0 15px 25px -10px rgba(190, 110, 130, 0.25);
+            border: 1.5px solid #ffeef2;
+            backdrop-filter: blur(5px);
+            cursor: pointer;
+            transition: all 0.25s;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            letter-spacing: 1px;
+        }
+
+        .blossom-btn i {
+            font-size: 1.2rem;
+            color: #a5516a;
+        }
+
+        .blossom-btn:hover {
+            background: #f0c6d4;
+            box-shadow: 0 18px 28px -8px rgba(180, 90, 110, 0.3);
+            transform: translateY(-2px);
+            border-color: #eebdca;
+            color: #4f2e3b;
+        }
+
+        .blossom-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 8px 15px -5px #b57b8a;
+        }
+
+        /* footer with gentle reminders */
+        .lady-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding-top: 18px;
+            border-top: 1.5px dashed #ecc7d1;
+            color: #7e5d6a;
+            font-size: 0.95rem;
+        }
+
+        .footer-reminders i {
+            margin: 0 5px 0 10px;
+            color: #b86b81;
+        }
+        .footer-reminders i:first-child {
+            margin-left: 0;
+        }
+
+        .footer-floral {
+            font-size: 1.1rem;
+            color: #c28295;
+            letter-spacing: 6px;
+        }
+
+        .extra-love {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            color: #8f6574;
+        }
+
+        /* ayat marker */
+        .blossom-tag {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .blossom-tag span {
+            background: #fbe4ec;
+            padding: 4px 18px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #8b5568;
+            letter-spacing: 2px;
+            border: 1px solid #ffdae3;
+        }
+
+        /* responsive */
+        @media (max-width: 550px) {
+            .lady-card {
+                padding: 1.8rem 1.2rem;
+                border-radius: 40px 40px 40px 15px;
+            }
+            .arabic-bism {
+                font-size: 2.2rem;
+            }
+            .quote-arabic-lady {
+                font-size: 2rem;
+            }
+            .quote-meaning-lady {
+                font-size: 1.3rem;
+            }
+            .dedication-lady h2 {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="lady-card">
+        <div class="card-inner">
+            <!-- Bismillah with feminine gradient -->
+            <div class="bismillah-feminine">
+                <div class="arabic-bism">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+                <div class="trans-soft">In the name of Allah, the Most Gracious, the Most Merciful</div>
+            </div>
+
+            <!-- Sweet dedication -->
+            <div class="dedication-lady">
+                <h2>
+                    <i class="fas fa-star-and-crescent"></i> 
+                    for my beloved 
+                    <i class="fas fa-star-and-crescent"></i>
+                </h2>
+                <div class="petal-message">
+                    <i class="fas fa-heart" style="color:#c45d73; margin:0 6px;"></i> 
+                    every word a petal of peace · every breath a gift of iman 
+                    <i class="fas fa-heart" style="color:#c45d73; margin:0 6px;"></i>
+                </div>
+            </div>
+
+            <!-- Quote section — will be updated by JS -->
+            <div class="quote-rose" id="ladyQuoteBox">
+                <div class="blossom-tag">
+                    <span><i class="fas fa-seedling"></i> soothing serenity <i class="fas fa-seedling"></i></span>
+                </div>
+                <div class="quote-arabic-lady" id="ladyArabic">فَإِنَّ مَعَ الْعُسْرِ يُسْرًا</div>
+                <div class="quote-meaning-lady" id="ladyMeaning">“So, surely with hardship comes ease.”</div>
+                <div class="quote-source-lady" id="ladySource">
+                    <i class="fas fa-book-open"></i> Quran 94:6 <i class="fas fa-feather"></i>
+                </div>
+            </div>
+
+            <!-- Feminine button -->
+            <div class="blossom-btn-wrapper">
+                <button class="blossom-btn" id="ladyNewQuoteBtn">
+                    <i class="fas fa-fan"></i> 
+                    new gentle whisper 
+                    <i class="fas fa-chevron-circle-right"></i>
+                </button>
+            </div>
+
+            <!-- Footer with subtle flowers & duas -->
+            <div class="lady-footer">
+                <div class="footer-reminders">
+                    <i class="fas fa-praying-hands"></i> sabr & shukr 
+                    <i class="fas fa-heart" style="margin:0 8px;"></i> 
+                    <i class="fas fa-hand-holding-heart"></i> dua for you
+                </div>
+                <div class="footer-floral">
+                    ✿ ✤ ✿
+                </div>
+            </div>
+            <div class="extra-love">
+                may your heart always find rest in His remembrance
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function(){
+            // ---- Curated collection of calming Islamic quotes with feminine resonance ----
+            const ladyQuotes = [
+                {
+                    arabic: "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا",
+                    meaning: "“So, surely with hardship comes ease.”",
+                    source: "Quran 94:6"
+                },
+                {
+                    arabic: "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",
+                    meaning: "“Indeed, Allah is with those who are patient.”",
+                    source: "Quran 2:153"
+                },
+                {
+                    arabic: "وَلَا تَيْأَسُوا مِن رَّوْحِ اللَّهِ",
+                    meaning: "“And do not lose hope in the mercy of Allah.”",
+                    source: "Quran 12:87"
+                },
+                {
+                    arabic: "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",
+                    meaning: "“Sufficient for us is Allah, and He is the best Disposer of affairs.”",
+                    source: "Quran 3:173"
+                },
+                {
+                    arabic: "وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ",
+                    meaning: "“And whoever puts their trust in Allah, He will be enough for them.”",
+                    source: "Quran 65:3"
+                },
+                {
+                    arabic: "إِنَّ رَحْمَتَ اللَّهِ قَرِيبٌ مِّنَ الْمُحْسِنِينَ",
+                    meaning: "“Indeed, the mercy of Allah is near to the doers of good.”",
+                    source: "Quran 7:56"
+                },
+                {
+                    arabic: "الَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ اللَّهِ",
+                    meaning: "“Those who have believed and whose hearts find rest in the remembrance of Allah.”",
+                    source: "Quran 13:28"
+                },
+                {
+                    arabic: "رَبَّنَا آتِنَا مِن لَّدُنكَ رَحْمَةً وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًا",
+                    meaning: "“Our Lord, grant us from Yourself mercy and prepare for us right guidance.”",
+                    source: "Quran 18:10"
+                },
+                {
+                    arabic: "وَاصْبِرْ وَمَا صَبْرُكَ إِلَّا بِاللَّهِ",
+                    meaning: "“And be patient, and your patience is not but through Allah.”",
+                    source: "Quran 16:127"
+                },
+                {
+                    arabic: "إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ",
+                    meaning: "“Actions are judged by intentions.”",
+                    source: "Hadith · Bukhari & Muslim"
+                },
+                {
+                    arabic: "الْكَلِمَةُ الطَّيِّبَةُ صَدَقَةٌ",
+                    meaning: "“A kind word is charity.”",
+                    source: "Hadith · Bukhari"
+                },
+                {
+                    arabic: "أَحَبُّ النَّاسِ إِلَى اللَّهِ أَنْفَعُهُمْ لِلنَّاسِ",
+                    meaning: "“The most beloved people to Allah are those who are most beneficial to others.”",
+                    source: "Hadith · Tabarani"
+                },
+                {
+                    arabic: "مَنْ لَا يَشْكُرِ النَّاسَ لَا يَشْكُرِ اللَّهَ",
+                    meaning: "“He who does not thank people, does not thank Allah.”",
+                    source: "Hadith · Abu Dawud"
+                },
+                {
+                    arabic: "إِنَّ اللَّهَ جَمِيلٌ يُحِبُّ الْجَمَالَ",
+                    meaning: "“Allah is Beautiful and He loves beauty.”",
+                    source: "Hadith · Muslim"
+                },
+                {
+                    arabic: "خَيْرُكُمْ خَيْرُكُمْ لِأَهْلِهِ",
+                    meaning: "“The best of you are those who are best to their families.”",
+                    source: "Hadith · Tirmidhi"
+                },
+                {
+                    arabic: "اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ",
+                    meaning: "“O Allah, You are Peace, and from You comes peace.”",
+                    source: "Hadith · Muslim"
+                },
+                {
+                    arabic: "وَقُل رَّبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا",
+                    meaning: "“My Lord, have mercy upon them as they brought me up when I was small.”",
+                    source: "Quran 17:24"
+                }
+            ];
+
+            const arabicElem = document.getElementById('ladyArabic');
+            const meaningElem = document.getElementById('ladyMeaning');
+            const sourceElem = document.getElementById('ladySource');
+            const quoteBox = document.getElementById('ladyQuoteBox');
+            const btn = document.getElementById('ladyNewQuoteBtn');
+
+            let lastIdx = -1;
+
+            function getRandomLadyQuote() {
+                let rand;
+                do {
+                    rand = Math.floor(Math.random() * ladyQuotes.length);
+                } while (ladyQuotes.length > 1 && rand === lastIdx);
+                lastIdx = rand;
+                return ladyQuotes[rand];
+            }
+
+            function updateQuoteWithGrace() {
+                const q = getRandomLadyQuote();
+                
+                // soft opacity transition
+                quoteBox.style.transition = 'opacity 0.2s ease';
+                quoteBox.style.opacity = '0.6';
+                
+                setTimeout(() => {
+                    arabicElem.textContent = q.arabic;
+                    meaningElem.textContent = q.meaning;
+                    sourceElem.innerHTML = `<i class="fas fa-book-open"></i> ${q.source} <i class="fas fa-feather"></i>`;
+                    quoteBox.style.opacity = '1';
+                }, 90);
+            }
+
+            // Set initial default (matching default view, but ensure consistent)
+            const defaultQ = ladyQuotes.find(q => q.arabic.includes("فَإِنَّ مَعَ الْعُسْرِ"));
+            if (defaultQ) {
+                arabicElem.textContent = defaultQ.arabic;
+                meaningElem.textContent = defaultQ.meaning;
+                sourceElem.innerHTML = `<i class="fas fa-book-open"></i> ${defaultQ.source} <i class="fas fa-feather"></i>`;
+                lastIdx = ladyQuotes.indexOf(defaultQ);
+            }
+
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                updateQuoteWithGrace();
+            });
+
+            // subtle touch: you can also click on the quote box for another quote (optional)
+            // but we keep button as main.
+        })();
+    </script>
+    <!-- graceful fallback -->
+    <noscript>
+        <div style="text-align:center; color:#884e62; padding:2rem;">✨ “So, surely with hardship comes ease.” — Quran 94:6 ✨</div>
+    </noscript>
+</body>
+</html>
